@@ -1,0 +1,28 @@
+{
+  "name": "seriallog",
+  "version": "1.0.0",
+  "description": "Logs the output from a serial port in real time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nebrius/serial-log.git"
+  },
+  "keywords": [
+    "serial",
+    "uart",
+    "watcher"
+  ],
+  "author": "Bryan Hughes <bryan@nebri.us>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nebrius/serial-log/issues"
+  },
+  "homepage": "https://github.com/nebrius/serial-log#readme",
+  "dependencies": {
+    "serialport": "^4.0.7",
+    "yargs": "^7.0.2"
+  }
+}
