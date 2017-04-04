@@ -1,6 +1,6 @@
 {
   "name": "seriallog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Logs the output from a serial port in real time",
   "bin": "node index.js",
   "scripts": {
