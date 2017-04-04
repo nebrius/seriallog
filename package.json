@@ -1,8 +1,8 @@
 {
   "name": "seriallog",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Logs the output from a serial port in real time",
-  "bin": "node index.js",
+  "bin": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
