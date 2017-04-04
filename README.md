@@ -15,13 +15,21 @@ npm install -g seriallog
 Serial log will often work without any options:
 
 ```
-seriallog
+$ seriallog
+
+Watching serial port /dev/cu.usbserial-A505WVU9
+  baudRate: 112500
+---------------------------------------------------------------
+ESP8266 Initializing
+Lights initialized
+Connecting to Coordinator.............^C
+$
 ```
 
 However, you can also specify baud rate and port:
 
 ```
-seriallog --baudrate 9600 --port /dev/cu.usbserial-12345678
+$ seriallog --baudrate 9600 --port /dev/cu.usbserial-12345678
 ```
 
 If you do not specify a serial port, it will try and figure it out for you. If there is more than one serial port available, it will prompt you for the port you prefer.
