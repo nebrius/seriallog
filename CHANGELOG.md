@@ -1,3 +1,7 @@
+## 1.1.0 (2018-5-5)
+
+- Updated serialport to latest version to add Node 10 support
+
 ## 1.0.2 (2017-4-4)
 
 - OK, it should actually work this time
