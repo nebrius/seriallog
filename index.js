@@ -65,7 +65,7 @@ function watchSerialPort(port, options) {
     .option('port', {
       alias: 'p',
       describe: 'The serial port to open',
-      choices: filteredPorts.map((port) => port.comName)
+      choices: filteredPorts.map((port) => port.path)
     })
     .option('baudrate', {
       alias: 'b',
@@ -89,11 +89,11 @@ function watchSerialPort(port, options) {
   if (filteredPorts.length === 0) {
     console.error('Could not find any valid serial ports to log');
   } else if (filteredPorts.length === 1) {
-    watchSerialPort(filteredPorts[0].comName, options);
+    watchSerialPort(filteredPorts[0].path, options);
   } else {
     console.log('More than one serial port was detected:\n');
     for (let i = 0; i < filteredPorts.length; i++) {
-      console.log(`  [${i + 1}]: ${filteredPorts[i].comName}`);
+      console.log(`  [${i + 1}]: ${filteredPorts[i].path}`);
     }
     const rl = readline.createInterface({
       input: process.stdin,
@@ -104,7 +104,7 @@ function watchSerialPort(port, options) {
       rl.question('\nWhich serial port would you like to use? [1] ', (answer) => {
         if (answer === '') {
           rl.close();
-          watchSerialPort(filteredPorts[0].comName, options);
+          watchSerialPort(filteredPorts[0].path, options);
         } else {
           const parsedAnswer = parseInt(answer);
           if (isNaN(parsedAnswer) || parsedAnswer <= 0 || parsedAnswer > filteredPorts.length) {
@@ -112,7 +112,7 @@ function watchSerialPort(port, options) {
             prompt();
           } else {
             rl.close();
-            watchSerialPort(filteredPorts[parsedAnswer - 1].comName, options);
+            watchSerialPort(filteredPorts[parsedAnswer - 1].path, options);
           }
         }
       });

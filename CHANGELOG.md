@@ -1,3 +1,7 @@
+## 1.1.2 (2020-2-22)
+
+- Switched from deprecated `comName` to `path` property to fix warnings.
+
 ## 1.1.1 (2020-2-22)
 
 - Updated dependencies to get serialport compiling again.
