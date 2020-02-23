@@ -25,20 +25,10 @@ SOFTWARE.
 
 const SerialPort = require('serialport');
 const readline = require('readline');
-const yargs = require('yargs');
 
 const DEFAULT_BAUDRATE = 112500;
 
 const VALID_PORT_REGEX = /usb|acm|^com/i;
-
-// Borrowed from Johnny-Five at https://github.com/rwaldron/johnny-five/blob/v0.10.6/lib/board.js#L55
-function filterSerialPorts(ports) {
-  return ports.filter((port) => {
-    // Match only ports that Arduino cares about
-    // ttyUSB#, cu.usbmodem#, COM#
-    return VALID_PORT_REGEX.test(port.comName);
-  });
-}
 
 function watchSerialPort(port, options) {
   console.log(`\nWatching serial port ${port}`);
@@ -63,12 +53,12 @@ function watchSerialPort(port, options) {
   });
 }
 
-SerialPort.list((err, ports) => {
-  if (err) {
-    throw err;
-  }
+(async() => {
+  const ports = await SerialPort.list();
 
-  const filteredPorts = filterSerialPorts(ports);
+  // Match only ports that Arduino cares about
+  // ttyUSB#, cu.usbmodem#, COM#
+  const filteredPorts = ports.filter((port) => VALID_PORT_REGEX.test(port.path));
 
   const argv = require('yargs')
     .usage('Usage: seriallog [options]')
@@ -129,4 +119,5 @@ SerialPort.list((err, ports) => {
     }
     prompt();
   }
-});
+
+})();

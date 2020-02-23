@@ -1,3 +1,7 @@
+## 1.1.1 (2020-2-22)
+
+- Updated dependencies to get serialport compiling again.
+
 ## 1.1.0 (2018-5-5)
 
 - Updated serialport to latest version to add Node 10 support
